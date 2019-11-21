@@ -53,4 +53,16 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
+    public function hasPermission(string $permissionName):bool{
+        $hasPermission = false;
+
+        foreach($this->roles as $role){
+
+            if($role->hasPermission($permissionName)){
+                $hasPermission=true;
+                break;
+            }
+        }
+        return $hasPermission;
+    }
 }
