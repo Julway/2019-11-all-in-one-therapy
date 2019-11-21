@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -40,4 +41,16 @@ class User extends Authenticatable
     public function documentations() {
         return $this->hasMany('App\Documentation');
     }
+    public function addRole(string $roleName){
+        $role = Role::where('name', $roleName)->first();
+        $this->roles()->save($role);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles() {
+        return $this->belongsToMany('App\Role');
+    }
+
 }
