@@ -10,7 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend');
 });
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+Route::get('/aboutUs', function () {
+    return view('aboutUs');
+})->name('aboutUs');
+
+Route::post('/authenticate', 'Auth\LoginController@login')->name('authenticate');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/backend', function () {
+        return view('backend');
+    });
+    Route::get('/patients', 'PatientController@index');
+    Route::post('/patients', 'PatientController@index');
+});
+
