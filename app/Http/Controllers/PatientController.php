@@ -20,6 +20,7 @@ class PatientController extends Controller
             }
             $patients = Patient::query()
                 ->where('svnr','LIKE',  $suche )
+                ->orwhere('firstname','LIKE',  $suche )
                 ->orwhere('lastname','LIKE',  $suche )
                 ->orwhere('address','LIKE',  $suche )
                 ->orwhere('plz','LIKE',  $suche )
