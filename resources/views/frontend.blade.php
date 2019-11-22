@@ -1,16 +1,16 @@
 @extends('base')
 @section('title', 'Welcome AIOT')
 @section('top-links')
+        <a href="{{ url('/aboutUs?ID=us') }}">Über uns</a>
+        <a href="{{ url('/leistungen') }}">Leistungen</a>
+        <a href="{{ url('/termine') }}">Termine</a>
+        <a href="{{ url('/kontakt') }}">Kontakt</a>
     @auth
         <a href="{{ url('/patients') }}">Patient</a>
         <a href="{{ url('/') }}">Kalender</a>
         <a href="{{ url('/') }}">Doku</a>
         <a href="{{ url('/backend') }}">BackEnd</a>
     @endauth
-        <a href="{{ url('/') }}">Über uns</a>
-        <a href="{{ url('/') }}">Leistungen</a>
-        <a href="{{ url('/') }}">Termine</a>
-        <a href="{{ url('/') }}">Kontakt</a>
 @stop
 @section('front')
     <h1>Willkomen in unserer Praxisgemeinschaft!</h1>
@@ -28,16 +28,16 @@
         </div>
         <div class="card">
             <img src="{{ asset('/images/woman-exercising-bear-body-of-water-1300526.jpg') }}" alt="Leistungen" title="">
-            <div class="card__head"><a href="{{ url('/') }}"><strong>Leistungen</strong></a>
+            <div class="card__head"><a href="{{ url('/leistungen') }}"><strong>Leistungen</strong></a>
             </div>
         </div>
         <div class="card">
             <img src="{{ asset('/images/blue-and-silver-stetoscope-40568.jpg') }}" alt="Termine" title="">
-            <div class="card__head"><a href="{{ url('/') }}"><strong>Termine</strong></a></div>
+            <div class="card__head"><a href="{{ url('/termine') }}"><strong>Termine</strong></a></div>
         </div>
         <div class="card">
             <img src="{{ asset('/images/care-clinic-cure-doctor-371941.jpg') }}" alt="Kontakt" title="Kontakt">
-            <div class="card__head"><a href="{{ url('/') }}"><strong>Kontakt</strong></a></div>
+            <div class="card__head"><a href="{{ url('/kontakt') }}"><strong>Kontakt</strong></a></div>
         </div>
     </div>
 @stop

@@ -1,21 +1,21 @@
 @extends('base')
 @section('title', 'Über uns')
 @section('top-links')
+        <a href="{{ url('/') }}">Home</a>
+        <a href="{{ url('/leistungen') }}">Leistungen</a>
+        <a href="{{ url('/termine') }}">Termine</a>
+        <a href="{{ url('/kontakt') }}">Kontakt</a>
     @auth
-        <a href="{{ url('/') }}">Patient</a>
+        <a href="{{ url('/patients') }}">Patient</a>
         <a href="{{ url('/') }}">Kalender</a>
         <a href="{{ url('/') }}">Doku</a>
         <a href="{{ url('/backend') }}">BackEnd</a>
     @endauth
-        <a href="{{ url('/') }}">Über uns</a>
-        <a href="{{ url('/') }}">Leistungen</a>
-        <a href="{{ url('/') }}">Termine</a>
-        <a href="{{ url('/') }}">Kontakt</a>
 @stop
 @section('main')
     <section>
-        @if( $_GET["ID"]=='anna')
-        <article class="float-left" id="anna">
+        @if( $_GET["ID"]=='anna'|| $_GET["ID"]=='us')
+        <article class="float-left" id="anna" style="background-position:center 10%;background-image: url({{asset('/images/woman-in-black-scoop-neck-shirt-smiling-38554.jpg')}} )!important">
             <h1>Anna Fink</h1>
             <p>Als Physiotherapeutin ist mir die ganzheitliche Arbeit mit dem Patienten wichtig. Die Osteopathie biete ich ebenfalls an - sie ergänzt die Behandlung optimal. Barbara und ich arbeiten schon lange zusammen und wir freuen uns, auch Sie in unserer Praxis begrüßen zu dürfen.</p>
             <ul>
@@ -40,8 +40,8 @@
             </ul>
         </article>
         @endif
-            @if( $_GET["ID"]=='barbara')
-        <article class="float-left" id="barbara">
+            @if( $_GET["ID"]=='barbara'||  $_GET["ID"]=='us')
+        <article class="float-left" id="barbara" style="background-position:center 19%;background-image: url({{asset('/images/woman-wearing-white-shirt-1181690.jpg')}} )!important">
             <h1>Barbara Berg</h1>
             <p>Ich kenne Anna schon seit der Schulzeit und wir haben Teile unserer Ausbildungen gemeinsam gemacht. Gemeinsam möchten wir unseren Patientinnen und Patienten stets das Allerbeste bieten und das gelingt uns jeden tag aufs Neue.</p>
             <ul>

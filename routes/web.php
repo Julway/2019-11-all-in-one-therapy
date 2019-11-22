@@ -19,6 +19,15 @@ Route::get('/login', function () {
 Route::get('/aboutUs', function () {
     return view('aboutUs');
 })->name('aboutUs');
+Route::get('/termine', function () {
+    return view('termine');
+})->name('termine');
+Route::get('/leistungen', function () {
+    return view('leistungen');
+})->name('leistungen');
+Route::get('/kontakt', function () {
+    return view('kontakt');
+})->name('kontakt');
 
 Route::post('/authenticate', 'Auth\LoginController@login')->name('authenticate');
 

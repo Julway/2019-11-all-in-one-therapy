@@ -63,7 +63,8 @@ body {
 }
 
 .links > a:hover {
-  color: #00FFEE;
+  color: #0c5460;
+  font-weight: 800;
   text-shadow: 0 0 10px #00FFEE;
   text-decoration: none;
 }
@@ -73,7 +74,7 @@ body {
 }
 
 .grey-layer {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(102, 255, 178, 0.5);
 }
 
 .modal-title {
@@ -100,7 +101,7 @@ main h1 {
 
 main h2 {
   font-size: 40px;
-  color: #00FFEE;
+  color: #1f7199;
   margin-left: 20px;
   margin-left: 20px;
   margin-top: 100px;
@@ -119,12 +120,29 @@ main article {
 
 .table th {
   padding: 0 !important;
+  background-color: #0C9A9A;
+  color: dimgrey !important;
+}
+
+.table th a {
+  color: #2b303b !important;
+}
+
+.table th a:hover {
+  text-shadow: 0 0 10px #00FFEE;
+  text-decoration: none;
+  color: #0e2231 !important;
 }
 
 .th {
   background-color: #00AAAA;
   color: #2a2a2a;
   padding: 5px 5px;
+}
+
+form .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 front body {
