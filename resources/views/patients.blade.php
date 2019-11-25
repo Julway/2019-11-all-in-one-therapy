@@ -17,11 +17,9 @@
 @section('main')
     <div class="container">
         <h2>Patientendaten</h2>
-
         <form action="/patients" method="POST">
             @method("GET")
             @csrf
-
             <div class="input-group">
                 <input name="suche" type="text" class="form-control" placeholder="Suchen nach ...">
                 <label>
@@ -32,7 +30,6 @@
                     </span>
                 </label>
             </div>
-
         <div class="row table-responsive">
             <label style="margin-bottom: 0; margin-left: 425px">{!! $patients->appends(\Request::except('page'))->render() !!}</label>
             <table class="table table-dark table-hover">
@@ -47,7 +44,6 @@
                         <th  class="text-center" >@sortablelink('country','Land')</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     @if($patients->count())
                         @foreach($patients as $patient)
@@ -59,44 +55,37 @@
                                 <td>{{ $patient->plz }}</td>
                                 <td>{{ $patient->city }}</td>
                                 <td>{{ $patient->country }}</td>
-
                             </tr>
-
-                    @endforeach
-
+                        @endforeach
                     @endif
                 </tbody>
             </table>
         </div>
             <label><button href="{{ url('/patients?nr=A') }}"class="btn btn-dark" type="submit" name="new">Neuen Patienten anlegen</button></label>
-
-        </form>
-               </div>
-            @if(!empty($_GET['nr']) )
-                <div class=" container">
-                    <form action="/patients/update" method="Post">
-
-                        @php
-
-                            $patient=\App\Patient::all()->where('id','==',$_GET['nr']);
-                        @endphp
-                        @foreach($patient as $key => $value)
-                        <label>SvNr <input type="number" minlength="8" maxlength="8" placeholder="{{$value->svnr}}"></label>
-                        <label>Vorname <input type="text" placeholder="{{$value->firstname}} "></label>
-                        <label>Nachname <input type="text" placeholder="{{$value->lastname}} "></label>
-                        <label>Adresse <input type="text" placeholder="{{$value->address}} "></label>
-                        <label>PLZ <input type="text" placeholder="{{$value->plz}} "></label>
-                        <label>Ort <input type="text" placeholder="{{$value->city}} "></label>
-                        <label>Land <input type="text" placeholder="{{$value->country}} "></label>
-                        <label>EMail <input type="text" placeholder="{{$value->email}} "></label>
-                        <lable><button class="btn btn-info" type="submit" name="up">Ändern</button><button class="btn btn-danger" type="submit" name="delete">Löschen</button></lable>
-                        @endforeach
-                    </form>
-                </div>
-            @endif
-
         </form>
     </div>
-
+        @if(!empty($_GET['nr']) )
+            <div class=" container">
+                <form action="/patients/update" method="Post">
+                    @php
+                        $patient=\App\Patient::all()->where('id','==',$_GET['nr']);
+                    @endphp
+                    @foreach($patient as $key => $value)
+                    <label>SvNr <input type="number" minlength="8" maxlength="8" placeholder="{{$value->svnr}}"></label>
+                    <label>Vorname <input type="text" placeholder="{{$value->firstname}} "></label>
+                    <label>Nachname <input type="text" placeholder="{{$value->lastname}} "></label>
+                    <label>Adresse <input type="text" placeholder="{{$value->address}} "></label>
+                    <label>PLZ <input type="text" placeholder="{{$value->plz}} "></label>
+                    <label>Ort <input type="text" placeholder="{{$value->city}} "></label>
+                    <label>Land <input type="text" placeholder="{{$value->country}} "></label>
+                    <label>EMail <input type="text" placeholder="{{$value->email}} "></label>
+                    <lable><button class="btn btn-info" type="submit" name="up">Ändern</button>
+                        <button class="btn btn-danger" type="submit" name="delete">Löschen</button></lable>
+                    @endforeach
+                </form>
+            </div>
+        @endif
+        </form>
+    </div>
 @endsection
 
